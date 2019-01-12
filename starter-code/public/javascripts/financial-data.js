@@ -37,11 +37,18 @@ const getCoinInfo = (from, to, curr) => {
     $('.minNum').text(min);
   };
 
+  const getCurrSymb = (curr) => {
+    $('.currCur').text(curr);
+    console.log("getCurrSymb : " + curr)
+  }
+
 
   const paintChart = (from, to, curr) => {
     getCoinInfo(from, to, curr).then((res)=>{
       getChart(res.dates, res.values);
       getCurr(res.values);
+      getCurrSymb(curr);
+      // console.log("paintChart : " + curr)
     });
   }
 

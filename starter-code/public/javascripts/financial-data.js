@@ -3,7 +3,10 @@ const getCoinInfo = (from, to, curr) => {
       const dates = Object.keys(res.data.bpi);
       const values = Object.values(res.data.bpi);
       return {dates, values};
-    });
+    })
+    .catch(err => {
+      console.log(err)
+    })
   };
 
   const getChart = (dat, val)=> {
@@ -39,7 +42,7 @@ const getCoinInfo = (from, to, curr) => {
 
   const getCurrSymb = (curr) => {
     $('.currCur').text(curr);
-    console.log("getCurrSymb : " + curr)
+    // console.log("getCurrSymb : " + curr)
   }
 
 
@@ -49,7 +52,10 @@ const getCoinInfo = (from, to, curr) => {
       getCurr(res.values);
       getCurrSymb(curr);
       // console.log("paintChart : " + curr)
-    });
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   //INIT CHART ---------------------
